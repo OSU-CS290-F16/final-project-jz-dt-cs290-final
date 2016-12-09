@@ -17,7 +17,7 @@ var mysqlDB = process.env.cards;
    host: "localhost",
    user: "root",
    password: "pass",
-   database: "clash"
+   database: "cards"
  });
 
  connection.connect(function(err){
@@ -41,22 +41,6 @@ app.set('view engine', 'handlebars');
   res.render('index', {
   });
 });
-
-connection.query('SELECT * FROM card', function(err,rows){
-  if(err) throw err;
-
-  else{
-    app.get('/chest', function (req, res) {
-      res.render('chest', {
-      pageTitle: "Chest Tracker"
-
-      chest: rows[0].
-      });
-    });
-  }
-
-})
-
 
 connection.query('SELECT * FROM card', function(err,rows){
   if(err) throw err;
@@ -91,30 +75,6 @@ app.get('/deckbuilder', function (req, res) {
 });
 }
 })
-
-app.get('/youtube', function (req, res) {
- res.render('youtube', {
-   pageTitle: "Youtube"
-
-   });
-});
-
-
-
-app.get('/update', function (req, res) {
- res.render('update', {
-   pageTitle: "update"
-
-   });
-});
-
-app.get('*', function(req, res) {
-  res.status(404).render('404', {
-    pageTitle: '404'
-  });
-});
-
-
 
 app.listen(port, function () {
     console.log("== Listening on port", port);
