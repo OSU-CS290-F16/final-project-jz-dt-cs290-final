@@ -1,0 +1,38 @@
+li{
+  display: inline;
+}
+
+.mynav
+{
+  padding-top: 22px;
+}
+
+.top
+{
+  list-style-type: none;
+  background-color: #720300;
+  margin: 0;
+  height: 60px;
+  color: #EB332E;
+}
+
+.nav-item
+{
+  color: white;
+  padding-left: 4px;
+  padding-right: 4px;
+  margin: 25px;
+  font-size: 20px;
+}
+
+body{
+  background-color: #4C0200;
+}
+
+.title
+{
+  font-size: 50px;
+  padding-right: 100px;
+  padding-left: 75px;
+  font-family: sans-serif;
+}
