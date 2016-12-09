@@ -42,8 +42,18 @@ app.set('view engine', 'handlebars');
   });
 });
 
-connection.query('SELECT url FROM card', function(err,rows){
+connection.query('SELECT * FROM card', function(err,rows){
   if(err) throw err;
+
+  else{
+    app.get('/chest', function (req, res) {
+      res.render('chest', {
+      pageTitle: "Chest Tracker"
+
+      chest: rows[0].
+      });
+    });
+  }
 
 })
 
@@ -51,7 +61,6 @@ connection.query('SELECT url FROM card', function(err,rows){
 app.get('/deckbuilder', function (req, res) {
  res.render('deckbuilder', {
    pageTitle: "Deck Builder"
-
    });
 });
 
@@ -62,12 +71,7 @@ app.get('/youtube', function (req, res) {
    });
 });
 
-app.get('/chest', function (req, res) {
- res.render('chest', {
-   pageTitle: "Chest Tracker"
 
-   });
-});
 
 app.get('/update', function (req, res) {
  res.render('update', {
