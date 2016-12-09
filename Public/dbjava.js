@@ -59,6 +59,7 @@ function test() {
 
 function returnURL()
 {
+
   var postUrl = '/test';
 
   console.log('hello');
@@ -107,6 +108,7 @@ function returnURL()
     "url8": img8
   }));
   console.log('hello');
+  alert("Saved!");
 }
 
 var save = document.getElementsByClassName("save");
