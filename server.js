@@ -17,7 +17,7 @@ var mysqlDB = process.env.cards;
    host: "localhost",
    user: "root",
    password: "pass",
-   database: "cards"
+   database: "clash"
  });
 
  connection.connect(function(err){
@@ -50,9 +50,36 @@ connection.query('SELECT url FROM card', function(err,rows){
 
 app.get('/deckbuilder', function (req, res) {
  res.render('deckbuilder', {
-   pageTitle: "Deckbuilder"
+   pageTitle: "Deck Builder"
 
    });
+});
+
+app.get('/youtube', function (req, res) {
+ res.render('youtube', {
+   pageTitle: "Youtube"
+
+   });
+});
+
+app.get('/chest', function (req, res) {
+ res.render('chest', {
+   pageTitle: "Chest Tracker"
+
+   });
+});
+
+app.get('/update', function (req, res) {
+ res.render('update', {
+   pageTitle: "update"
+
+   });
+});
+
+app.get('*', function(req, res) {
+  res.status(404).render('404', {
+    pageTitle: '404'
+  });
 });
 
 

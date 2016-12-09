@@ -1,0 +1,11 @@
+body
+{
+	background-color: #4C0200;
+}
+
+iframe
+{
+	margin: 20px;
+	border: 5px;
+	border-style: inset;
+}
