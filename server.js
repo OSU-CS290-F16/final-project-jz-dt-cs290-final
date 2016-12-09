@@ -13,6 +13,8 @@ var mysqlUser = process.env.root;
 var mysqlPassword = process.env.pass;
 var mysqlDB = process.env.cards;
 
+var iterator = 0;
+
  var connection =  mysql.createConnection({
    host: "localhost",
    user: "root",
@@ -37,9 +39,50 @@ app.set('view engine', 'handlebars');
  // Serve static files from public/.
  app.use(express.static(path.join(__dirname, 'public')));
 
+     app.get('/youtube', function (req, res) {
+     res.render('youtube', {
+       pageTitle: "Youtube"
+
+       });
+    });
+
+
+
+    app.get('/update', function (req, res) {
+     res.render('update', {
+       pageTitle: "update"
+
+       });
+    });
+
+    app.get('/chest', function (req, res) {
+          res.render('chest', {
+          pageTitle: "Chest Tracker",
+
+          });
+        });
+
+
+
+
+connection.query('SELECT * FROM deck', function(err,rows){
+  if(err) throw err;
+  else{
  app.get('/', function (req, res) {
   res.render('index', {
+    pageTitle: "Main",
+    card1: rows[0].Url,
+    card2: rows[1].Url,
+    card3: rows[2].Url,
+    card4: rows[3].Url,
+    card5: rows[4].Url,
+    card6: rows[5].Url,
+    card7: rows[6].Url,
+    card8: rows[7].Url
   });
+});
+
+}
 });
 
 connection.query('SELECT * FROM card', function(err,rows){
@@ -72,29 +115,38 @@ app.get('/deckbuilder', function (req, res) {
    link22: rows[21].Url
 
    });
-    
-    app.get('/youtube', function (req, res) {
-     res.render('youtube', {
-       pageTitle: "Youtube"
 
-       });
+});
+
+    app.post('/test', function (req, res)
+    {
+      console.log(req.body.url1);
+      connection.query('DELETE FROM deck', function(err,rows){
+        if(err) throw err;
+        else{}
+
+   });
+      var sql = "INSERT INTO deck (Url) VALUES ?";
+      var values = [
+    [req.body.url1],
+    [req.body.url2],
+    [req.body.url3],
+    [req.body.url4],
+    [req.body.url5],
+    [req.body.url6],
+    [req.body.url7],
+    [req.body.url8]
+];
+      connection.query(sql, [values], function(err,rows){
+        if(err) throw err;
+        else{}
+
+   });
+
+
+
+
     });
-
-
-
-    app.get('/update', function (req, res) {
-     res.render('update', {
-       pageTitle: "update"
-
-       });
-    });
-
-    app.get('/chest', function (req, res) {
-          res.render('chest', {
-          pageTitle: "Chest Tracker",
-
-          });
-        });
 
     app.get('*', function(req, res) {
       res.status(404).render('404', {
@@ -102,10 +154,8 @@ app.get('/deckbuilder', function (req, res) {
       });
     });
 
-});
 }
 })
-
 
 app.listen(port, function () {
     console.log("== Listening on port", port);

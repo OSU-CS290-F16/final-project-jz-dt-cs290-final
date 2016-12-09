@@ -1,5 +1,7 @@
 li{
   display: inline;
+  margin-left: 20px;
+  font-size: 20px;
 }
 
 .mynav
@@ -68,6 +70,20 @@ li{
 body{
   background-color: #4C0200;
 }
+
+.rando:hover
+{
+  cursor: pointer;
+  background-color: #4C0200; 
+}
+
+.save:hover
+{
+  cursor: pointer;
+  background-color: #4C0200; 
+}
+.cards
+{cursor: pointer;}
 
 .title
 {

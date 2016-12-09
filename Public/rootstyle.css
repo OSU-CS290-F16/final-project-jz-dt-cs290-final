@@ -12,3 +12,43 @@ body
 {
 	
 }
+
+.hi
+{
+	height: 152px;
+	width: 800px;
+	border-radius: 7%;
+	margin-top: 25px;
+	margin-left: 20px;
+	display: inline-block;;
+	background-image: url("http://www.hdbloggers.net/wp-content/uploads/2016/03/Wood-Texture-For-Web-Design.jpg");
+	text-align: center;
+}
+
+.bloc img{
+	padding-left: 10px;
+	padding-top: 10px;
+	height: 100px;
+}
+
+.bloc2
+{
+	margin: 20px;
+	border: 5px;
+	display: block;
+}
+
+.bloc2 img
+{
+	margin: 20px;
+	border: 5px;
+	height: 200px;
+	width: 240px;
+	border-style: inset;
+	border-radius: 20%;
+}
+
+.bloc img:hover
+{
+  cursor: pointer;
+}
