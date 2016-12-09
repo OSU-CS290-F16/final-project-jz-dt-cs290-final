@@ -63,9 +63,30 @@ app.set('view engine', 'handlebars');
         });
 
 
+app.get('/', function (req, res) {
 
+  connection.query('SELECT * FROM deck', function(err,rows){
+  if(err) throw err;
+  else{
 
-connection.query('SELECT * FROM deck', function(err,rows){
+      res.render('index', {
+    pageTitle: "Main",
+    card1: rows[0].Url,
+    card2: rows[1].Url,
+    card3: rows[2].Url,
+    card4: rows[3].Url,
+    card5: rows[4].Url,
+    card6: rows[5].Url,
+    card7: rows[6].Url,
+    card8: rows[7].Url
+  });
+}
+
+});
+
+  });
+
+/*connection.query('SELECT * FROM deck', function(err,rows){
   if(err) throw err;
   else{
  app.get('/', function (req, res) {
@@ -81,9 +102,8 @@ connection.query('SELECT * FROM deck', function(err,rows){
     card8: rows[7].Url
   });
 });
+*/
 
-}
-});
 
 connection.query('SELECT * FROM card', function(err,rows){
   if(err) throw err;
