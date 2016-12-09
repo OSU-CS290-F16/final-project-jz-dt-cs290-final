@@ -16,6 +16,46 @@ li{
   color: #EB332E;
 }
 
+.cardsinbox
+{
+  height: 152px;
+  width: 800px;
+  border-radius: 7%;
+  margin-top: 25px;
+  margin-left: 20px;
+  display: inline-block;;
+  background-image: url("http://www.hdbloggers.net/wp-content/uploads/2016/03/Wood-Texture-For-Web-Design.jpg");
+}
+
+.cardsinbox h1
+{
+  padding-top: 3px;
+  padding-left: 8px;
+}
+
+.cardsoutbox
+{
+  height: 280px;
+  width: 800px;
+  border-radius: 7%;
+  margin-top: 25px;
+  margin-left: 20px;
+  display: inline-block;
+  background-image: url("http://4.bp.blogspot.com/-X6Di7CPFPz8/Up5yIqS_NdI/AAAAAAAACdA/DjKB8Ir399k/s1600/Walnut-Wood-Flooring-002.jpg");
+}
+
+.cardsoutbox h1
+{
+  padding-top: 8px;
+  padding-left: 8px;
+}
+
+.bloc img{
+  padding-left: 10px;
+  padding-top: 10px;
+  height: 100px;
+}
+
 .nav-item
 {
   color: white;
