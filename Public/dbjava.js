@@ -24,33 +24,25 @@ function ranDeck(event)
 
 function test() {
 
-  // We'll post to the add-photo endpoint for the appropriate person.
   var postUrl = '/test';
 
   console.log('hello');
 
-  // Start a new request to post our newly added photo as JSON data.
   var postRequest = new XMLHttpRequest();
   postRequest.open('POST', postUrl);
   postRequest.setRequestHeader('Content-Type', 'application/json');
   console.log('hello');
 
-  /*
-   * Set up a simple handler for completed requests.  This will send an error
-   * into the callback if we don't get a 200 (success) status back.
-   */
   postRequest.addEventListener('load', function (event) {
     var error;
     if (event.target.status !== 200) {
       error = event.target.response;
     }
-    //callback(error);
   });
   console.log(postRequest);
 
   var hello = "penis";
 
-  // Send our photo data off to the server.
   postRequest.send(JSON.stringify({
     "hello": hello
   }));
@@ -64,16 +56,10 @@ function returnURL()
 
   console.log('hello');
 
-  // Start a new request to post our newly added photo as JSON data.
   var postRequest = new XMLHttpRequest();
   postRequest.open('POST', postUrl);
   postRequest.setRequestHeader('Content-Type', 'application/json');
   console.log('hello');
-
-  /*
-   * Set up a simple handler for completed requests.  This will send an error
-   * into the callback if we don't get a 200 (success) status back.
-   */
   postRequest.addEventListener('load', function (event) {
     var error;
     if (event.target.status !== 200) {
@@ -96,7 +82,6 @@ function returnURL()
   var img8 = deck[17].src;
 
 
-  // Send our photo data off to the server.
   postRequest.send(JSON.stringify({
     "url1": img1,
     "url2": img2,
